@@ -1,0 +1,17 @@
+1.如何导入Json
+方法1: 使用mongoimport 从 cmd 导入。
+mongoimport -h 127.0.0.1 -d test -c Data  --type json --file /Users/xiangshan/Desktop/Employee.json 
+
+但是mongoimport限制文件大小上限为16MB。生成的100万条纪录的json文件大小约为125MB。
+所以需要先把此json文件分为大概10个小文件，再使用该方法全部导入。
+
+方法2: 使用java读取并解析json文件，然后将每一条纪录转化为DBObject类，使用insert()方法插入到mongodb中。
+
+
+
+
+2. MongoDB 不同于普通的特性：
+1.可以处理 有结构的，部分结构的，无结构的数据。
+2. scale out架构，而非一体化架构。分布式数据库。
+3. 与面向对象的语言更能协调工作。
+4. 支持TTL （ time to live）集合。
